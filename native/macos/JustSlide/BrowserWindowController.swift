@@ -11,13 +11,17 @@ final class BrowserWindowController: NSWindowController, NSWindowDelegate {
     private let core: CoreBridge
     private let handler: ChromeMessageHandler
 
-    init(core: CoreBridge, chromeRoot: URL, size: NSSize) {
+    init(core: CoreBridge, resources: URL, size: NSSize, startInFixture: String? = nil) {
         self.core = core
         let container = NSView()
         pageContainer = container
         handler = ChromeMessageHandler(core: core)
         let config = WKWebViewConfiguration()
-        config.setURLSchemeHandler(ChromeSchemeHandler(root: chromeRoot), forURLScheme: "justslide-chrome")
+        var roots = ["app": resources.appendingPathComponent("Chrome")]
+        #if DEBUG
+        roots["preview"] = resources.appendingPathComponent("ChromePreview")
+        #endif
+        config.setURLSchemeHandler(ChromeSchemeHandler(roots: roots), forURLScheme: "justslide-chrome")
         config.setURLSchemeHandler(FaviconSchemeHandler(), forURLScheme: "justslide-favicon")
         config.userContentController.addScriptMessageHandler(handler, contentWorld: .page, name: "justslide")
         config.websiteDataStore = .nonPersistent()
@@ -51,10 +55,37 @@ final class BrowserWindowController: NSWindowController, NSWindowDelegate {
         handler.onContentBounds = { [weak self] rect, radius in self?.placePage(rect, radius) }
         core.onEngineCommand = { [weak self] cmd in self?.adapter.handle(cmd) }
         core.onCoreEvent = { [weak self] seq, _ in self?.chrome.evaluateJavaScript("window.__justslideEvent && window.__justslideEvent(\(seq))") }
-        chrome.load(URLRequest(url: URL(string: "justslide-chrome://app/\(chromeRoot.lastPathComponent == "ChromePreview" ? "preview.html" : "index.html")")!))
         window.center()
         layoutTrafficLights()
+        if let v = startInFixture { showDesignFixture(v) } else { showLiveChrome() }
+        if let screen = window.screen ?? NSScreen.main {
+            NSLog("JustSlide: screen visibleFrame %@ backingScale %.1f", NSStringFromRect(screen.visibleFrame), screen.backingScaleFactor)
+        }
     }
+
+    /// Normal mode: production chrome driven by the Rust core.
+    func showLiveChrome() {
+        pageContainer.isHidden = false
+        window?.title = "JustSlide"
+        chrome.load(URLRequest(url: URL(string: "justslide-chrome://app/index.html")!))
+    }
+
+    #if DEBUG
+    /// DEBUG ONLY: renders the Figma reference content (dev fixture, JS bridge)
+    /// in this real WKWebView at the Figma frame size for native comparison.
+    /// No page view is shown; nothing here touches the user's profile.
+    func showDesignFixture(_ variant: String) {
+        pageContainer.isHidden = true
+        let size = variant == "compact" ? NSSize(width: 1100, height: 720) : NSSize(width: 1440, height: 1024)
+        window?.setContentSize(size)
+        window?.title = "JustSlide — DESIGN FIXTURE (\(variant))"
+        chrome.load(URLRequest(url: URL(string: "justslide-chrome://preview/preview.html?variant=\(variant)")!))
+        layoutTrafficLights()
+        NSLog("JustSlide: design fixture %@ requested %@ actual content %@", variant, NSStringFromSize(size), NSStringFromSize(window?.contentView?.bounds.size ?? .zero))
+    }
+    #else
+    func showDesignFixture(_ variant: String) {}
+    #endif
 
     required init?(coder: NSCoder) { fatalError("not supported") }
 

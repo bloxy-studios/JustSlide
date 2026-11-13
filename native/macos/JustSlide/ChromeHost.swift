@@ -2,14 +2,15 @@ import AppKit
 import UniformTypeIdentifiers
 import WebKit
 
-/// Serves the bundled trusted chrome at `justslide-chrome://app/…`. Only the
-/// chrome WKWebView registers this scheme; page views cannot load it.
+/// Serves the bundled trusted chrome at `justslide-chrome://app/…` (and, in
+/// DEBUG builds only, the design-fixture preview at `justslide-chrome://preview/…`).
+/// Only the chrome WKWebView registers this scheme; page views cannot load it.
 final class ChromeSchemeHandler: NSObject, WKURLSchemeHandler {
-    let root: URL
-    init(root: URL) { self.root = root.standardizedFileURL }
+    private let roots: [String: URL]
+    init(roots: [String: URL]) { self.roots = roots.mapValues { $0.standardizedFileURL } }
 
     func webView(_ webView: WKWebView, start task: WKURLSchemeTask) {
-        guard let url = task.request.url, url.host == "app" else { return fail(task) }
+        guard let url = task.request.url, let host = url.host, let root = roots[host] else { return fail(task) }
         let rel = url.path.isEmpty || url.path == "/" ? "index.html" : String(url.path.dropFirst())
         let file = root.appendingPathComponent(rel).standardizedFileURL
         guard file.path.hasPrefix(root.path + "/"), let data = try? Data(contentsOf: file) else { return fail(task) }

@@ -28,15 +28,8 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
             NSApp.terminate(nil); return
         }
         self.core = core
-        var size = NSSize(width: 1440, height: 1024)
-        var chromeRoot = Bundle.main.resourceURL!.appendingPathComponent("Chrome")
-        if let fixture {
-            // DEBUG only: deterministic Figma reference content for native screenshots.
-            core.loadDesignFixture(variant: fixture)
-            size = fixture == "compact" ? NSSize(width: 1100, height: 720) : NSSize(width: 1440, height: 1024)
-            chromeRoot = Bundle.main.resourceURL!.appendingPathComponent("ChromePreview")
-        }
-        windowController = BrowserWindowController(core: core, chromeRoot: chromeRoot, size: size)
+        if let fixture { core.loadDesignFixture(variant: fixture) }
+        windowController = BrowserWindowController(core: core, resources: Bundle.main.resourceURL!, size: NSSize(width: 1440, height: 1024), startInFixture: fixture)
         windowController.showWindow(nil)
         if fixture == nil { core.restoreSession() }
         NSApp.mainMenu = buildMenu()
@@ -80,6 +73,12 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         windowController.chrome.evaluateJavaScript("document.querySelector('[aria-label=\"Address and search\"]')?.focus()")
     }
 
+    #if DEBUG
+    @objc func fixtureDesktop(_ s: Any?) { windowController.showDesignFixture("desktop") }
+    @objc func fixtureCompact(_ s: Any?) { windowController.showDesignFixture("compact") }
+    @objc func liveBrowser(_ s: Any?) { windowController.showLiveChrome() }
+    #endif
+
     private func buildMenu() -> NSMenu {
         let main = NSMenu()
         func sub(_ title: String, _ items: [NSMenuItem]) { let m = NSMenu(title: title); items.forEach { m.addItem($0) }; let i = NSMenuItem(); i.submenu = m; main.addItem(i) }
@@ -90,6 +89,9 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         sub("View", [item("Reload Page", #selector(reload(_:)), "r"), item("Enter Full Screen", #selector(NSWindow.toggleFullScreen(_:)), "f", [.command, .control])])
         sub("History", [item("Back", #selector(goBack(_:)), "["), item("Forward", #selector(goForward(_:)), "]")])
         sub("Window", [item("Minimize", #selector(NSWindow.performMiniaturize(_:)), "m"), item("Zoom", #selector(NSWindow.performZoom(_:)), "")])
+        #if DEBUG
+        sub("Develop", [item("Design Fixture Desktop", #selector(fixtureDesktop(_:)), ""), item("Design Fixture Compact", #selector(fixtureCompact(_:)), ""), item("Live Browser", #selector(liveBrowser(_:)), "")])
+        #endif
         return main
     }
 }
