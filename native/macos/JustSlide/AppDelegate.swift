@@ -85,6 +85,24 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
     @objc func fixtureDesktop(_ s: Any?) { windowController.showDesignFixture("desktop") }
     @objc func fixtureCompact(_ s: Any?) { windowController.showDesignFixture("compact") }
     @objc func liveBrowser(_ s: Any?) { windowController.showLiveChrome() }
+    /// DEBUG: real HTTPS navigation through the core + WebKit adapter, then a
+    /// compact dump of the core's tab state (titles/URLs come from WebKit).
+    @objc func liveNavigationCheck(_ s: Any?) {
+        windowController.showLiveChrome()
+        run("tabs.open", ["input": "https://example.com"])
+        run("tabs.open", ["input": "https://www.apple.com/"])
+        DispatchQueue.main.asyncAfter(deadline: .now() + 8) { [weak self] in
+            self?.core.execute(id: "dbg-snap", command: "state.snapshot", args: [:]) { r in
+                let s = r["result"] as? [String: Any] ?? [:]
+                let tabs = (s["tabs"] as? [[String: Any]] ?? []).map { t in
+                    ["url": t["url"] ?? "", "title": t["title"] ?? "", "loadState": t["loadState"] ?? "", "active": t["active"] ?? false, "secure": t["secure"] ?? false, "canGoBack": t["canGoBack"] ?? false] as [String: Any]
+                }
+                let out: [String: Any] = ["revision": s["revision"] ?? 0, "tabs": tabs, "activeWorkspace": (s["window"] as? [String: Any])?["activeWorkspaceId"] ?? ""]
+                let data = (try? JSONSerialization.data(withJSONObject: out, options: [.sortedKeys])) ?? Data()
+                print("JUSTSLIDE-LIVE-CHECK " + (String(data: data, encoding: .utf8) ?? "{}")); fflush(stdout)
+            }
+        }
+    }
     #endif
 
     private func buildMenu() -> NSMenu {
@@ -98,7 +116,7 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         sub("History", [item("Back", #selector(goBack(_:)), "["), item("Forward", #selector(goForward(_:)), "]")])
         sub("Window", [item("Minimize", #selector(NSWindow.performMiniaturize(_:)), "m"), item("Zoom", #selector(NSWindow.performZoom(_:)), "")])
         #if DEBUG
-        sub("Develop", [item("Design Fixture Desktop", #selector(fixtureDesktop(_:)), ""), item("Design Fixture Compact", #selector(fixtureCompact(_:)), ""), item("Live Browser", #selector(liveBrowser(_:)), "")])
+        sub("Develop", [item("Design Fixture Desktop", #selector(fixtureDesktop(_:)), ""), item("Design Fixture Compact", #selector(fixtureCompact(_:)), ""), item("Live Browser", #selector(liveBrowser(_:)), ""), item("Live Navigation Check", #selector(liveNavigationCheck(_:)), "")])
         #endif
         return main
     }

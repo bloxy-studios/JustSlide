@@ -65,6 +65,13 @@ final class CoreBridge {
 
     /// Forwards a real WebKit callback to the core.
     func send(event: [String: Any]) {
+        #if DEBUG
+        let t = event["type"] as? String ?? "?"
+        if t != "titleChanged" && t != "urlChanged" {
+            let host = (event["url"] as? String).flatMap { URL(string: $0)?.host } ?? ""
+            NSLog("JustSlide-engine-event %@ tab=%@ %@ %@", t, event["tabId"] as? String ?? "", host, (event["title"] as? String ?? event["message"] as? String ?? ""))
+        }
+        #endif
         guard let handle, let data = try? JSONSerialization.data(withJSONObject: event), let text = String(data: data, encoding: .utf8) else { return }
         let rc = text.withCString { justslide_core_engine_event(handle, $0) }
         if rc != 0 { NSLog("JustSlide: core rejected engine event %@ (%d)", event["type"] as? String ?? "?", rc) }
