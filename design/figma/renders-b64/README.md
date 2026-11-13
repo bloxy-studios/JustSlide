@@ -1,0 +1,1 @@
+Base64 copies of the Figma reference renders (the GitHub connector used for pushes is text-only). Restore PNGs with `for f in design/figma/renders-b64/*.b64; do base64 --decode < "$f" > design/figma/renders/$(basename "${f%.b64}"); done`. The macOS DEBUG build decodes them for the native fixture self-check.
