@@ -1,0 +1,224 @@
+$ bun run protocol:check && bun run typecheck && bun run test:ui && bun run build:ui && cargo test --workspace --all-features && node scripts/check-release-bundle.mjs
+$ node scripts/gen-protocol-ts.mjs --check
+protocol.ts up to date
+$ cd apps/browser-chrome && bun run typecheck
+$ tsc --noEmit -p .
+$ cd apps/browser-chrome && bun run test
+$ vitest run
+
+ RUN  v5.1.0 /agent/workspace/JustSlide/apps/browser-chrome
+
+stderr | src/__tests__/chrome.test.tsx > information architecture (Figma 1:6) > keeps website favorites and workspace switchers semantically distinct
+{
+  msg: 'An error has occurred checking the feature gate. Only the first occurrence of this error is logged.',
+  gateName: 'platform-dst-top-layer',
+  error: Error: Client must be initialized before using this method
+      at Client.assertReady (/agent/workspace/JustSlide/node_modules/@atlaskit/feature-gate-js-client/dist/cjs/client/Client.js:1767:15)
+      at Client.checkGate (/agent/workspace/JustSlide/node_modules/@atlaskit/feature-gate-js-client/dist/cjs/client/Client.js:590:14)
+      at FeatureGates.checkGate (/agent/workspace/JustSlide/node_modules/@atlaskit/feature-gate-js-client/dist/cjs/client/FeatureGates.js:144:31)
+      at resolveBooleanFlag (/agent/workspace/JustSlide/node_modules/@atlaskit/platform-feature-flags/dist/cjs/resolveBooleanFlag.js:26:36)
+      at fg (/agent/workspace/JustSlide/node_modules/@atlaskit/platform-feature-flags/dist/cjs/fg.js:9:53)
+      at DropdownMenu (/agent/workspace/JustSlide/node_modules/@atlaskit/dropdown-menu/dist/cjs/dropdown-menu.js:381:18)
+      at Object.react_stack_bottom_frame (/agent/workspace/JustSlide/node_modules/react-dom/cjs/react-dom-client.development.js:28571:20)
+      at renderWithHooks (/agent/workspace/JustSlide/node_modules/react-dom/cjs/react-dom-client.development.js:8030:22)
+      at updateFunctionComponent (/agent/workspace/JustSlide/node_modules/react-dom/cjs/react-dom-client.development.js:10569:19)
+      at beginWork (/agent/workspace/JustSlide/node_modules/react-dom/cjs/react-dom-client.development.js:12205:18)
+}
+
+ ✓ src/__tests__/chrome.test.tsx (11 tests) 958ms
+
+ Test Files  1 passed (1)
+      Tests  11 passed (11)
+   Start at  01:23:46
+   Duration  2.72s (tests 38%, environment 32%, import 19%, setup 5%, transform 5%)
+
+$ cd apps/browser-chrome && bun run build
+$ parcel build --target app --no-cache && node ../../scripts/finalize-chrome-bundle.mjs && node ../../scripts/check-release-bundle.mjs
+Building...
+Bundling...
+Packaging & Optimizing...
+✨ Built in 6.59s
+
+dist/app/index.html                                                 2.32 kB    1.33s
+dist/app/browser-chrome.6458c463.js                                638.5 kB    1.64s
+dist/app/delivery.f3d57477.js                                      25.87 kB    820ms
+dist/app/atlassian-light.7a96ed15.js                               21.44 kB    813ms
+dist/app/atlassian-light-future.2e13a0c9.js                           574 B    800ms
+dist/app/atlassian-light-finesse.4809f0f2.js                        1.06 kB    800ms
+dist/app/atlassian-light-increased-contrast-finesse.95294c3e.js     1.31 kB    804ms
+dist/app/atlassian-light-increased-contrast.7d661e22.js            21.64 kB    812ms
+dist/app/UNSAFE-dynamic.5119f790.js                                28.94 kB    813ms
+dist/app/UNSAFE-dynamic-dark.ab44e843.js                           29.01 kB    813ms
+dist/app/UNSAFE-test-light.40189249.js                             21.49 kB    815ms
+dist/app/UNSAFE-test-dark.a2bafbfd.js                              21.54 kB    816ms
+dist/app/atlassian-dark.8e5d8662.js                                 21.5 kB    816ms
+dist/app/atlassian-dark-future.429aeb9e.js                            573 B    816ms
+dist/app/atlassian-dark-finesse.655700a7.js                         1.06 kB    816ms
+dist/app/atlassian-dark-increased-contrast-finesse.dabdf5aa.js       1.3 kB    816ms
+dist/app/atlassian-dark-increased-contrast.c2c6275d.js             21.63 kB    816ms
+dist/app/atlassian-spacing.0adf6c16.js                              1.66 kB    817ms
+dist/app/UNSAFE-spacing.a2cda29c.js                                10.24 kB    817ms
+dist/app/atlassian-typography.37792abb.js                           3.52 kB    817ms
+dist/app/UNSAFE-typography.7a2a6d18.js                              6.94 kB    817ms
+dist/app/atlassian-typography-finesse.f60a7c7c.js                   1.56 kB    817ms
+dist/app/atlassian-shape.803d8d72.js                                  696 B    820ms
+dist/app/atlassian-motion.9488e395.js                               14.4 kB    819ms
+dist/app/custom-theme.44eb713b.js                                  74.19 kB    820ms
+dist/app/add-favorite.8e5f457b.svg                                    225 B    631ms
+dist/app/back.438fd89a.svg                                            239 B    635ms
+dist/app/chevron-collapsed.a714d462.svg                               222 B    635ms
+dist/app/chevron-expanded.29b30d17.svg                                221 B    636ms
+dist/app/close.8286f6ea.svg                                           203 B    636ms
+dist/app/downloads.26a88972.svg                                       581 B    637ms
+dist/app/forward.4a6f17c6.svg                                         238 B    713ms
+dist/app/new-tab.dc356939.svg                                         185 B    716ms
+dist/app/new-workspace.1f0e86a9.svg                                   224 B    716ms
+dist/app/pause.12988352.svg                                           193 B    720ms
+dist/app/pin.b099df1e.svg                                             352 B    721ms
+dist/app/reload.7bb17051.svg                                          451 B    757ms
+dist/app/sidebar-toggle.87d2cb59.svg                                  471 B    759ms
+dist/app/chatgpt.c8a93e53.svg                                       1.69 kB    759ms
+dist/app/claude-code.9bcfd762.svg                                     357 B    759ms
+dist/app/claude-code-activity.9bcfd762.svg                            357 B    760ms
+dist/app/codex.1076ab34.svg                                         1.27 kB    786ms
+dist/app/personal.b210a98b.svg                                        689 B    786ms
+dist/app/browser-chrome.6f2f781a.css                                 6.5 kB    825ms
+index.html: pinned 1 import map(s) in CSP
+warning: asset needs owner/legal review before release: chatgpt.c8a93e53.svg
+warning: asset needs owner/legal review before release: claude-code-activity.9bcfd762.svg
+warning: asset needs owner/legal review before release: claude-code.9bcfd762.svg
+warning: asset needs owner/legal review before release: codex.1076ab34.svg
+release bundle check passed (47 files, 4 licence warnings)
+   Compiling justslide-protocol v0.2.0 (/agent/workspace/JustSlide/crates/justslide-protocol)
+   Compiling justslide-core v0.2.0 (/agent/workspace/JustSlide/crates/justslide-core)
+   Compiling justslide-mcp v0.2.0 (/agent/workspace/JustSlide/crates/justslide-mcp)
+   Compiling justslide-ffi v0.2.0 (/agent/workspace/JustSlide/crates/justslide-ffi)
+warning: unused dependency `serde`
+  --> crates/justslide-protocol/Cargo.toml:13:1
+   |
+13 | serde.workspace = true
+   | ^^^^^
+   |
+   = note: `cargo::unused_dependencies` is set to `warn` by default
+help: consider removing the dependency on `serde`
+warning: `justslide-protocol` (manifest) generated 1 warning
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 5.06s
+     Running unittests src/lib.rs (target/debug/build/justslide-core/f920bbb472878fa9/out/justslide_core-f920bbb472878fa9)
+
+running 4 tests
+test events::tests::bounded_and_reports_resync ... ok
+test urls::tests::redaction_strips_secrets ... ok
+test urls::tests::resolves_hosts_urls_and_searches ... ok
+test urls::tests::rejects_dangerous_schemes ... ok
+
+test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running unittests src/bin/devhost.rs (target/debug/build/justslide-core/7e5477db91953b38/out/justslide_devhost-7e5477db91953b38)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/core_scenarios.rs (target/debug/build/justslide-core/334dbd7b08bc3608/out/core_scenarios-334dbd7b08bc3608)
+
+running 17 tests
+test agent_favorites_need_the_persons_approval ... ok
+test agent_works_in_background_without_touching_human_focus ... ok
+test agents_cannot_see_or_touch_personal_tabs_or_other_agents ... ok
+test close_then_reopen_restores_the_tab_and_selects_it ... ok
+test design_fixture_matches_figma_reference_content ... ok
+test explicit_workspace_grant_still_protects_the_viewed_tab ... ok
+test human_only_and_unsafe_inputs_are_rejected_for_agents ... ok
+test injected_page_text_grants_nothing ... ok
+test operations_outside_the_grant_are_denied ... ok
+test agent_event_stream_is_scoped ... ok
+test private_workspaces_are_never_persisted ... ok
+test real_engine_state_drives_tabs_failures_crashes_and_popups ... ok
+test request_id_idempotency_prevents_duplicate_tabs ... ok
+test revocation_is_immediate_and_pause_blocks_writes ... ok
+test seeds_figma_dock_workspaces_with_personal_selected ... ok
+test persists_and_restores_tabs_favorites_and_order_lazily ... ok
+test stale_preconditions_and_rate_limits ... ok
+
+test result: ok. 17 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.26s
+
+     Running unittests src/lib.rs (target/debug/build/justslide-ffi/654f99e5ca4da56b/out/justslide_ffi-654f99e5ca4da56b)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/abi.rs (target/debug/build/justslide-ffi/ff1b0d600e7f7e29/out/abi-ff1b0d600e7f7e29)
+
+running 1 test
+test chrome_commands_round_trip_through_the_c_abi ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.03s
+
+     Running unittests src/lib.rs (target/debug/build/justslide-mcp/92278987a9e7c90f/out/justslide_mcp-92278987a9e7c90f)
+
+running 3 tests
+test endpoint::tests::rejects_open_automation_dir ... ok
+test endpoint::tests::rejects_world_readable_token_file ... ok
+test endpoint::tests::rejects_short_or_weird_tokens ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running unittests src/main.rs (target/debug/build/justslide-mcp/73c300f8ef2c23fa/out/justslide_mcp-73c300f8ef2c23fa)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/mcp_e2e.rs (target/debug/build/justslide-mcp/946d220f6bb0cc5d/out/mcp_e2e-946d220f6bb0cc5d)
+
+running 2 tests
+2026-11-13T06:24:01.807809Z  WARN justslide_mcp::server: JustSlide not reachable; advertising capabilities tool only: JustSlide refused the connection: pairing token is unknown, revoked or expired
+2026-11-13T06:24:01.858112Z  WARN justslide_mcp::client: JustSlide connection closed: unexpected end of file
+test bad_token_is_refused_and_only_capabilities_are_advertised ... ok
+test agent_creates_three_background_tabs_without_interrupting_the_person ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.93s
+
+     Running unittests src/lib.rs (target/debug/build/justslide-protocol/9abf5178ff70b425/out/justslide_protocol-9abf5178ff70b425)
+
+running 6 tests
+test registry::tests::activating_and_human_commands_are_never_exposed_to_agents ... ok
+test registry::tests::command_names_are_unique ... ok
+test registry::tests::embedded_registry_parses_and_inlines_refs ... ok
+test validate::tests::bounds_are_enforced ... ok
+test validate::tests::accepts_valid_background_tab ... ok
+test validate::tests::rejects_activation_and_non_http_urls_and_extra_fields ... ok
+
+test result: ok. 6 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+
+   Doc-tests justslide_core
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests justslide_ffi
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests justslide_mcp
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests justslide_protocol
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+warning: asset needs owner/legal review before release: chatgpt.c8a93e53.svg
+warning: asset needs owner/legal review before release: claude-code-activity.9bcfd762.svg
+warning: asset needs owner/legal review before release: claude-code.9bcfd762.svg
+warning: asset needs owner/legal review before release: codex.1076ab34.svg
+release bundle check passed (47 files, 4 licence warnings)
+exit 0 — 2026-11-13T06:24:20Z — 5759a06+uncommitted, Linux x86_64

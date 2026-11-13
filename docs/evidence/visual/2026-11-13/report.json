@@ -1,0 +1,980 @@
+{
+  "generatedAt": "2026-11-13T01:06:32",
+  "kind": "browser-preview (NOT native WKWebView)",
+  "figmaFileVersion": "2420685396735920550",
+  "figmaLastModified": "2026-11-11T19:26:40Z",
+  "tolerancePx": 1.0,
+  "results": [
+    {
+      "engine": "chromium",
+      "engineVersion": "148.0.7778.96",
+      "variant": "desktop",
+      "figmaNode": "1:6",
+      "size": [
+        1440,
+        1024
+      ],
+      "scale": 1,
+      "screenshot": "preview-chromium-desktop-1440x1024@1x.png",
+      "composite": "compare-chromium-desktop-1440x1024@1x.png",
+      "wholeFrame": {
+        "meanAbsDiff": 0.69,
+        "pctPixelsOver32": 0.62
+      },
+      "regions": [
+        {
+          "region": "Sidebar",
+          "figma": [
+            12,
+            12,
+            240,
+            1000
+          ],
+          "dom": [
+            12,
+            12,
+            240,
+            1000
+          ],
+          "maxEdgeDeltaPx": 0,
+          "pass": true,
+          "pixels": {
+            "meanAbsDiff": 4.23,
+            "pctPixelsOver32": 3.8
+          }
+        },
+        {
+          "region": "Navigation Controls",
+          "figma": [
+            12,
+            12,
+            240,
+            40
+          ],
+          "dom": [
+            12,
+            12,
+            240,
+            40
+          ],
+          "maxEdgeDeltaPx": 0,
+          "pass": true,
+          "pixels": {
+            "meanAbsDiff": 0.47,
+            "pctPixelsOver32": 0.14
+          }
+        },
+        {
+          "region": "Address Bar",
+          "figma": [
+            12,
+            60,
+            240,
+            32
+          ],
+          "dom": [
+            12,
+            60,
+            240,
+            32
+          ],
+          "maxEdgeDeltaPx": 0,
+          "pass": true,
+          "pixels": {
+            "meanAbsDiff": 1.94,
+            "pctPixelsOver32": 2.07
+          }
+        },
+        {
+          "region": "Website favorites / 12 sites",
+          "figma": [
+            12,
+            100,
+            240,
+            118
+          ],
+          "dom": [
+            12,
+            100,
+            240,
+            118
+          ],
+          "maxEdgeDeltaPx": 0,
+          "pass": true,
+          "pixels": {
+            "meanAbsDiff": 4.7,
+            "pctPixelsOver32": 4.92
+          }
+        },
+        {
+          "region": "Pinned Section",
+          "figma": [
+            12,
+            226,
+            240,
+            208
+          ],
+          "dom": [
+            12,
+            226,
+            240,
+            208
+          ],
+          "maxEdgeDeltaPx": 0,
+          "pass": true,
+          "pixels": {
+            "meanAbsDiff": 4.41,
+            "pctPixelsOver32": 4.26
+          }
+        },
+        {
+          "region": "Browser Sidebar",
+          "figma": [
+            12,
+            450,
+            240,
+            490
+          ],
+          "dom": [
+            12,
+            450,
+            240,
+            490
+          ],
+          "maxEdgeDeltaPx": 0,
+          "pass": true,
+          "pixels": {
+            "meanAbsDiff": 4.73,
+            "pctPixelsOver32": 4.02
+          }
+        },
+        {
+          "region": "Tabs / Independently scrolling",
+          "figma": [
+            12,
+            490,
+            240,
+            450
+          ],
+          "dom": [
+            12,
+            490,
+            240,
+            450
+          ],
+          "maxEdgeDeltaPx": 0,
+          "pass": true,
+          "pixels": {
+            "meanAbsDiff": 5.07,
+            "pctPixelsOver32": 4.29
+          }
+        },
+        {
+          "region": "Workspace footer",
+          "figma": [
+            12,
+            948,
+            240,
+            64
+          ],
+          "dom": [
+            12,
+            948,
+            240,
+            64
+          ],
+          "maxEdgeDeltaPx": 0,
+          "pass": true,
+          "pixels": {
+            "meanAbsDiff": 1.83,
+            "pctPixelsOver32": 1.58
+          }
+        },
+        {
+          "region": "Web Page Window",
+          "figma": [
+            264,
+            12,
+            1164,
+            1000
+          ],
+          "dom": [
+            264,
+            12,
+            1164,
+            1000
+          ],
+          "maxEdgeDeltaPx": 0,
+          "pass": true,
+          "pixels": {
+            "meanAbsDiff": 0.0,
+            "pctPixelsOver32": 0.0
+          }
+        }
+      ],
+      "lists": [
+        {
+          "list": "Website favorites / 12 sites",
+          "figmaCount": 13,
+          "domCount": 13,
+          "maxDeltaPx": 0,
+          "pass": true
+        },
+        {
+          "list": "Workspace controls",
+          "figmaCount": 6,
+          "domCount": 6,
+          "maxDeltaPx": 0,
+          "pass": true
+        },
+        {
+          "list": "Tab rows (visible)",
+          "figmaCount": 15,
+          "domCount": 15,
+          "compared": 15,
+          "maxDeltaPx": 0,
+          "pass": true
+        }
+      ]
+    },
+    {
+      "engine": "chromium",
+      "engineVersion": "148.0.7778.96",
+      "variant": "desktop",
+      "figmaNode": "1:6",
+      "size": [
+        1440,
+        1024
+      ],
+      "scale": 2,
+      "screenshot": "preview-chromium-desktop-1440x1024@2x.png",
+      "composite": "compare-chromium-desktop-1440x1024@2x.png",
+      "wholeFrame": {
+        "meanAbsDiff": 1.1,
+        "pctPixelsOver32": 0.71
+      },
+      "regions": [
+        {
+          "region": "Sidebar",
+          "figma": [
+            12,
+            12,
+            240,
+            1000
+          ],
+          "dom": [
+            12,
+            12,
+            240,
+            1000
+          ],
+          "maxEdgeDeltaPx": 0,
+          "pass": true,
+          "pixels": {
+            "meanAbsDiff": 6.76,
+            "pctPixelsOver32": 4.39
+          }
+        },
+        {
+          "region": "Navigation Controls",
+          "figma": [
+            12,
+            12,
+            240,
+            40
+          ],
+          "dom": [
+            12,
+            12,
+            240,
+            40
+          ],
+          "maxEdgeDeltaPx": 0,
+          "pass": true,
+          "pixels": {
+            "meanAbsDiff": 0.23,
+            "pctPixelsOver32": 0.07
+          }
+        },
+        {
+          "region": "Address Bar",
+          "figma": [
+            12,
+            60,
+            240,
+            32
+          ],
+          "dom": [
+            12,
+            60,
+            240,
+            32
+          ],
+          "maxEdgeDeltaPx": 0,
+          "pass": true,
+          "pixels": {
+            "meanAbsDiff": 0.99,
+            "pctPixelsOver32": 1.05
+          }
+        },
+        {
+          "region": "Website favorites / 12 sites",
+          "figma": [
+            12,
+            100,
+            240,
+            118
+          ],
+          "dom": [
+            12,
+            100,
+            240,
+            118
+          ],
+          "maxEdgeDeltaPx": 0,
+          "pass": true,
+          "pixels": {
+            "meanAbsDiff": 4.96,
+            "pctPixelsOver32": 3.65
+          }
+        },
+        {
+          "region": "Pinned Section",
+          "figma": [
+            12,
+            226,
+            240,
+            208
+          ],
+          "dom": [
+            12,
+            226,
+            240,
+            208
+          ],
+          "maxEdgeDeltaPx": 0,
+          "pass": true,
+          "pixels": {
+            "meanAbsDiff": 8.51,
+            "pctPixelsOver32": 5.42
+          }
+        },
+        {
+          "region": "Browser Sidebar",
+          "figma": [
+            12,
+            450,
+            240,
+            490
+          ],
+          "dom": [
+            12,
+            450,
+            240,
+            490
+          ],
+          "maxEdgeDeltaPx": 0,
+          "pass": true,
+          "pixels": {
+            "meanAbsDiff": 8.14,
+            "pctPixelsOver32": 5.02
+          }
+        },
+        {
+          "region": "Tabs / Independently scrolling",
+          "figma": [
+            12,
+            490,
+            240,
+            450
+          ],
+          "dom": [
+            12,
+            490,
+            240,
+            450
+          ],
+          "maxEdgeDeltaPx": 0,
+          "pass": true,
+          "pixels": {
+            "meanAbsDiff": 8.57,
+            "pctPixelsOver32": 5.27
+          }
+        },
+        {
+          "region": "Workspace footer",
+          "figma": [
+            12,
+            948,
+            240,
+            64
+          ],
+          "dom": [
+            12,
+            948,
+            240,
+            64
+          ],
+          "maxEdgeDeltaPx": 0,
+          "pass": true,
+          "pixels": {
+            "meanAbsDiff": 2.12,
+            "pctPixelsOver32": 2.28
+          }
+        },
+        {
+          "region": "Web Page Window",
+          "figma": [
+            264,
+            12,
+            1164,
+            1000
+          ],
+          "dom": [
+            264,
+            12,
+            1164,
+            1000
+          ],
+          "maxEdgeDeltaPx": 0,
+          "pass": true,
+          "pixels": {
+            "meanAbsDiff": 0.0,
+            "pctPixelsOver32": 0.0
+          }
+        }
+      ],
+      "lists": [
+        {
+          "list": "Website favorites / 12 sites",
+          "figmaCount": 13,
+          "domCount": 13,
+          "maxDeltaPx": 0,
+          "pass": true
+        },
+        {
+          "list": "Workspace controls",
+          "figmaCount": 6,
+          "domCount": 6,
+          "maxDeltaPx": 0,
+          "pass": true
+        },
+        {
+          "list": "Tab rows (visible)",
+          "figmaCount": 15,
+          "domCount": 15,
+          "compared": 15,
+          "maxDeltaPx": 0,
+          "pass": true
+        }
+      ]
+    },
+    {
+      "engine": "chromium",
+      "engineVersion": "148.0.7778.96",
+      "variant": "compact",
+      "figmaNode": "35:13",
+      "size": [
+        1100,
+        720
+      ],
+      "scale": 1,
+      "screenshot": "preview-chromium-compact-1100x720@1x.png",
+      "composite": "compare-chromium-compact-1100x720@1x.png",
+      "wholeFrame": {
+        "meanAbsDiff": 1.06,
+        "pctPixelsOver32": 0.92
+      },
+      "regions": [
+        {
+          "region": "Sidebar",
+          "figma": [
+            12,
+            12,
+            240,
+            696
+          ],
+          "dom": [
+            12,
+            12,
+            240,
+            696
+          ],
+          "maxEdgeDeltaPx": 0,
+          "pass": true,
+          "pixels": {
+            "meanAbsDiff": 5.01,
+            "pctPixelsOver32": 4.38
+          }
+        },
+        {
+          "region": "Navigation Controls",
+          "figma": [
+            12,
+            12,
+            240,
+            40
+          ],
+          "dom": [
+            12,
+            12,
+            240,
+            40
+          ],
+          "maxEdgeDeltaPx": 0,
+          "pass": true,
+          "pixels": {
+            "meanAbsDiff": 0.47,
+            "pctPixelsOver32": 0.14
+          }
+        },
+        {
+          "region": "Address Bar",
+          "figma": [
+            12,
+            60,
+            240,
+            32
+          ],
+          "dom": [
+            12,
+            60,
+            240,
+            32
+          ],
+          "maxEdgeDeltaPx": 0,
+          "pass": true,
+          "pixels": {
+            "meanAbsDiff": 1.94,
+            "pctPixelsOver32": 2.07
+          }
+        },
+        {
+          "region": "Website favorites / 12 sites",
+          "figma": [
+            12,
+            100,
+            240,
+            118
+          ],
+          "dom": [
+            12,
+            100,
+            240,
+            118
+          ],
+          "maxEdgeDeltaPx": 0,
+          "pass": true,
+          "pixels": {
+            "meanAbsDiff": 4.7,
+            "pctPixelsOver32": 4.92
+          }
+        },
+        {
+          "region": "Pinned Section",
+          "figma": [
+            12,
+            226,
+            240,
+            28
+          ],
+          "dom": [
+            12,
+            226,
+            240,
+            28
+          ],
+          "maxEdgeDeltaPx": 0,
+          "pass": true,
+          "pixels": {
+            "meanAbsDiff": 1.83,
+            "pctPixelsOver32": 2.11
+          }
+        },
+        {
+          "region": "Browser Sidebar",
+          "figma": [
+            12,
+            270,
+            240,
+            302
+          ],
+          "dom": [
+            12,
+            270,
+            240,
+            302
+          ],
+          "maxEdgeDeltaPx": 0,
+          "pass": true,
+          "pixels": {
+            "meanAbsDiff": 6.49,
+            "pctPixelsOver32": 5.25
+          }
+        },
+        {
+          "region": "Tabs / Independently scrolling",
+          "figma": [
+            12,
+            310,
+            240,
+            262
+          ],
+          "dom": [
+            12,
+            310,
+            240,
+            262
+          ],
+          "maxEdgeDeltaPx": 0,
+          "pass": true,
+          "pixels": {
+            "meanAbsDiff": 7.34,
+            "pctPixelsOver32": 5.9
+          }
+        },
+        {
+          "region": "Background agent activity / Illustrative state",
+          "figma": [
+            12,
+            580,
+            240,
+            56
+          ],
+          "dom": [
+            12,
+            580,
+            240,
+            56
+          ],
+          "maxEdgeDeltaPx": 0,
+          "pass": true,
+          "pixels": {
+            "meanAbsDiff": 8.56,
+            "pctPixelsOver32": 8.28
+          }
+        },
+        {
+          "region": "Workspace footer",
+          "figma": [
+            12,
+            644,
+            240,
+            64
+          ],
+          "dom": [
+            12,
+            644,
+            240,
+            64
+          ],
+          "maxEdgeDeltaPx": 0,
+          "pass": true,
+          "pixels": {
+            "meanAbsDiff": 1.87,
+            "pctPixelsOver32": 1.63
+          }
+        },
+        {
+          "region": "Web Page Window",
+          "figma": [
+            264,
+            12,
+            824,
+            696
+          ],
+          "dom": [
+            264,
+            12,
+            824,
+            696
+          ],
+          "maxEdgeDeltaPx": 0,
+          "pass": true,
+          "pixels": {
+            "meanAbsDiff": 0.0,
+            "pctPixelsOver32": 0.0
+          }
+        }
+      ],
+      "lists": [
+        {
+          "list": "Website favorites / 12 sites",
+          "figmaCount": 13,
+          "domCount": 13,
+          "maxDeltaPx": 0,
+          "pass": true
+        },
+        {
+          "list": "Workspace controls",
+          "figmaCount": 6,
+          "domCount": 6,
+          "maxDeltaPx": 0,
+          "pass": true
+        },
+        {
+          "list": "Tab rows (visible)",
+          "figmaCount": 8,
+          "domCount": 8,
+          "compared": 8,
+          "maxDeltaPx": 0,
+          "pass": true
+        }
+      ]
+    },
+    {
+      "engine": "chromium",
+      "engineVersion": "148.0.7778.96",
+      "variant": "compact",
+      "figmaNode": "35:13",
+      "size": [
+        1100,
+        720
+      ],
+      "scale": 2,
+      "screenshot": "preview-chromium-compact-1100x720@2x.png",
+      "composite": "compare-chromium-compact-1100x720@2x.png",
+      "wholeFrame": {
+        "meanAbsDiff": 1.39,
+        "pctPixelsOver32": 0.93
+      },
+      "regions": [
+        {
+          "region": "Sidebar",
+          "figma": [
+            12,
+            12,
+            240,
+            696
+          ],
+          "dom": [
+            12,
+            12,
+            240,
+            696
+          ],
+          "maxEdgeDeltaPx": 0,
+          "pass": true,
+          "pixels": {
+            "meanAbsDiff": 6.57,
+            "pctPixelsOver32": 4.4
+          }
+        },
+        {
+          "region": "Navigation Controls",
+          "figma": [
+            12,
+            12,
+            240,
+            40
+          ],
+          "dom": [
+            12,
+            12,
+            240,
+            40
+          ],
+          "maxEdgeDeltaPx": 0,
+          "pass": true,
+          "pixels": {
+            "meanAbsDiff": 0.23,
+            "pctPixelsOver32": 0.07
+          }
+        },
+        {
+          "region": "Address Bar",
+          "figma": [
+            12,
+            60,
+            240,
+            32
+          ],
+          "dom": [
+            12,
+            60,
+            240,
+            32
+          ],
+          "maxEdgeDeltaPx": 0,
+          "pass": true,
+          "pixels": {
+            "meanAbsDiff": 0.99,
+            "pctPixelsOver32": 1.05
+          }
+        },
+        {
+          "region": "Website favorites / 12 sites",
+          "figma": [
+            12,
+            100,
+            240,
+            118
+          ],
+          "dom": [
+            12,
+            100,
+            240,
+            118
+          ],
+          "maxEdgeDeltaPx": 0,
+          "pass": true,
+          "pixels": {
+            "meanAbsDiff": 4.96,
+            "pctPixelsOver32": 3.65
+          }
+        },
+        {
+          "region": "Pinned Section",
+          "figma": [
+            12,
+            226,
+            240,
+            28
+          ],
+          "dom": [
+            12,
+            226,
+            240,
+            28
+          ],
+          "maxEdgeDeltaPx": 0,
+          "pass": true,
+          "pixels": {
+            "meanAbsDiff": 1.65,
+            "pctPixelsOver32": 1.56
+          }
+        },
+        {
+          "region": "Browser Sidebar",
+          "figma": [
+            12,
+            270,
+            240,
+            302
+          ],
+          "dom": [
+            12,
+            270,
+            240,
+            302
+          ],
+          "maxEdgeDeltaPx": 0,
+          "pass": true,
+          "pixels": {
+            "meanAbsDiff": 10.12,
+            "pctPixelsOver32": 6.13
+          }
+        },
+        {
+          "region": "Tabs / Independently scrolling",
+          "figma": [
+            12,
+            310,
+            240,
+            262
+          ],
+          "dom": [
+            12,
+            310,
+            240,
+            262
+          ],
+          "maxEdgeDeltaPx": 0,
+          "pass": true,
+          "pixels": {
+            "meanAbsDiff": 11.16,
+            "pctPixelsOver32": 6.73
+          }
+        },
+        {
+          "region": "Background agent activity / Illustrative state",
+          "figma": [
+            12,
+            580,
+            240,
+            56
+          ],
+          "dom": [
+            12,
+            580,
+            240,
+            56
+          ],
+          "maxEdgeDeltaPx": 0,
+          "pass": true,
+          "pixels": {
+            "meanAbsDiff": 8.38,
+            "pctPixelsOver32": 6.45
+          }
+        },
+        {
+          "region": "Workspace footer",
+          "figma": [
+            12,
+            644,
+            240,
+            64
+          ],
+          "dom": [
+            12,
+            644,
+            240,
+            64
+          ],
+          "maxEdgeDeltaPx": 0,
+          "pass": true,
+          "pixels": {
+            "meanAbsDiff": 2.14,
+            "pctPixelsOver32": 2.31
+          }
+        },
+        {
+          "region": "Web Page Window",
+          "figma": [
+            264,
+            12,
+            824,
+            696
+          ],
+          "dom": [
+            264,
+            12,
+            824,
+            696
+          ],
+          "maxEdgeDeltaPx": 0,
+          "pass": true,
+          "pixels": {
+            "meanAbsDiff": 0.0,
+            "pctPixelsOver32": 0.0
+          }
+        }
+      ],
+      "lists": [
+        {
+          "list": "Website favorites / 12 sites",
+          "figmaCount": 13,
+          "domCount": 13,
+          "maxDeltaPx": 0,
+          "pass": true
+        },
+        {
+          "list": "Workspace controls",
+          "figmaCount": 6,
+          "domCount": 6,
+          "maxDeltaPx": 0,
+          "pass": true
+        },
+        {
+          "list": "Tab rows (visible)",
+          "figmaCount": 8,
+          "domCount": 8,
+          "compared": 8,
+          "maxDeltaPx": 0,
+          "pass": true
+        }
+      ]
+    }
+  ],
+  "geometryFailures": 0
+}

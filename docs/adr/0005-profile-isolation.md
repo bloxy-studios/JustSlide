@@ -1,0 +1,2 @@
+# ADR 0005 — Profiles and isolation
+Status: Accepted. A profile = one WebKit website data store. Personal workspaces share the personal profile; each default agent-oriented workspace (Codex, Claude Code, ChatGPT) has its own isolated profile; workspaces an agent creates share one isolated profile per grant; private = non-persistent store, never written to SQLite. Cross-profile tab moves are human-only and reload the page in the destination profile (a WKWebView cannot change data store).

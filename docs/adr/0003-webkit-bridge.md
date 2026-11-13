@@ -1,0 +1,2 @@
+# ADR 0003 — Core ↔ host bridge: JSON over a minimal C ABI
+Status: Accepted. Swift calls `justslide_core_open/execute/engine_event/restore_session/close` (`native/macos/JustSlideCore/include/justslide.h`); Rust calls two host callbacks (engine command, core event). All payloads are JSON validated against the registry. Rationale: tiny unsafe surface, no generated bindings, the same JSON the IPC/MCP path uses, testable on Linux (`crates/justslide-ffi/tests/abi.rs`). Cost: JSON encode/decode per call (sub-millisecond at current sizes).

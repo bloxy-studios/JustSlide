@@ -1,0 +1,2 @@
+# ADR 0002 — Rendering engine: system WebKit only
+Status: Accepted (owner directive, spec §0). JustSlide uses the macOS WebKit framework. No Chromium/CEF/Electron/content API. Consequences: no Chrome Web Store parity (ADR-free compatibility matrix in `docs/extension-matrix.md`); Linux/Windows need their own adapters later. The Chromium prototype is preserved untouched on `archive/chromium-foundation` (commit 32ddddc).

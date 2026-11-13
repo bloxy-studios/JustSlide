@@ -1,0 +1,5 @@
+open+migrate+seed: 3.95 ms, rss 6904 KiB
+tabs=  1: human tabs.create 0.355 ms/tab (incl. SQLite txn), state.snapshot 0.043 ms, agent tabs.create 0.409 ms, rss 7664 KiB
+tabs=  5: human tabs.create 0.685 ms/tab (incl. SQLite txn), state.snapshot 0.071 ms, agent tabs.create 0.428 ms, rss 7816 KiB
+tabs= 20: human tabs.create 0.801 ms/tab (incl. SQLite txn), state.snapshot 0.159 ms, agent tabs.create 0.583 ms, rss 8212 KiB
+tabs= 50: human tabs.create 1.608 ms/tab (incl. SQLite txn), state.snapshot 0.339 ms, agent tabs.create 0.724 ms, rss 8988 KiB

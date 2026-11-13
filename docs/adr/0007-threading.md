@@ -1,0 +1,2 @@
+# ADR 0007 — Threading
+Status: Accepted. Core state is behind one mutex and never held across `await` or engine calls (engine commands are collected and sent after unlock). Core runs on a private 2-worker tokio runtime. Host callbacks copy their JSON and hop to the main queue; all WebKit/AppKit work is `@MainActor`. SQLite writes happen inside the core lock (small, transactional); move to a writer task if profiling shows main-thread stalls via the FFI.

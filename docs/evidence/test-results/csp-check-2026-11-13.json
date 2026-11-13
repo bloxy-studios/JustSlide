@@ -1,0 +1,22 @@
+[
+ {
+  "page": "preview.html",
+  "cspViolations": [],
+  "pageErrors": [],
+  "externalRequests": [],
+  "dsSurface": "#FFFFFF",
+  "dsText": "#0E1B1B",
+  "rendered": true
+ },
+ {
+  "page": "index.html",
+  "cspViolations": [],
+  "pageErrors": [
+   "JustSlide native bridge unavailable"
+  ],
+  "externalRequests": [],
+  "dsSurface": "",
+  "dsText": "",
+  "rendered": false
+ }
+]
