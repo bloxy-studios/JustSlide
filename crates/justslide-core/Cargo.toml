@@ -1,0 +1,39 @@
+[package]
+name = "justslide-core"
+description = "JustSlide application core: the single authority for windows, workspaces, tabs, favorites, settings, agent grants and activity. Rendering lives in the platform WebKit adapter; this crate never renders."
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+publish.workspace = true
+
+[features]
+# Deterministic in-process engine double used by tests and the dev host.
+# Never enabled by the shipping macOS app (see crates/justslide-ffi).
+test-engine = []
+# Development-only Figma design fixture loader (debug builds of the app).
+design-fixture = []
+
+[dependencies]
+justslide-protocol = { path = "../justslide-protocol" }
+anyhow.workspace = true
+base64.workspace = true
+rand.workspace = true
+rusqlite.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+sha2.workspace = true
+thiserror.workspace = true
+tokio.workspace = true
+tracing.workspace = true
+url.workspace = true
+libc = "0.2"
+
+[dev-dependencies]
+tempfile.workspace = true
+tokio = { workspace = true, features = ["test-util"] }
+
+[[bin]]
+name = "justslide-devhost"
+path = "src/bin/devhost.rs"
+required-features = ["test-engine"]

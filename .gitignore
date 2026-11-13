@@ -1,0 +1,9 @@
+/target/
+node_modules/
+.parcel-cache/
+apps/browser-chrome/dist/
+*.xcuserstate
+xcuserdata/
+DerivedData/
+native/macos/build/
+.DS_Store

@@ -1,0 +1,31 @@
+[package]
+name = "justslide-mcp"
+description = "Thin stdio MCP adapter forwarding authenticated requests to the running JustSlide app over local IPC. Holds no browser state."
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+publish.workspace = true
+
+[lib]
+path = "src/lib.rs"
+
+[[bin]]
+name = "justslide-mcp"
+path = "src/main.rs"
+
+[dependencies]
+justslide-protocol = { path = "../justslide-protocol" }
+anyhow.workspace = true
+libc = "0.2"
+rmcp = { version = "=3.9.0", default-features = false, features = ["server", "transport-io"] }
+serde.workspace = true
+serde_json.workspace = true
+tokio.workspace = true
+tracing.workspace = true
+tracing-subscriber.workspace = true
+
+[dev-dependencies]
+justslide-core = { path = "../justslide-core", features = ["test-engine"] }
+tempfile.workspace = true
+tokio = { workspace = true, features = ["process"] }
