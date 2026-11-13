@@ -10,9 +10,11 @@ final class BrowserWindowController: NSWindowController, NSWindowDelegate {
     let adapter: WebKitBrowserAdapter
     private let core: CoreBridge
     private let handler: ChromeMessageHandler
+    private let resources: URL
 
     init(core: CoreBridge, resources: URL, size: NSSize, startInFixture: String? = nil) {
         self.core = core
+        self.resources = resources
         let container = NSView()
         pageContainer = container
         handler = ChromeMessageHandler(core: core)
@@ -37,6 +39,9 @@ final class BrowserWindowController: NSWindowController, NSWindowDelegate {
         window.title = "JustSlide"
         window.minSize = NSSize(width: 800, height: 560)
         window.isMovableByWindowBackground = false
+        // Follow the active Space when ordered front (apps launched in the
+        // background otherwise open on a Space the person isn't viewing).
+        window.collectionBehavior.insert(.moveToActiveSpace)
         super.init(window: window)
         window.delegate = self
         let content = NSView(frame: window.contentLayoutRect)
@@ -82,6 +87,7 @@ final class BrowserWindowController: NSWindowController, NSWindowDelegate {
         chrome.load(URLRequest(url: URL(string: "justslide-chrome://preview/preview.html?variant=\(variant)")!))
         layoutTrafficLights()
         NSLog("JustSlide: design fixture %@ requested %@ actual content %@", variant, NSStringFromSize(size), NSStringFromSize(window?.contentView?.bounds.size ?? .zero))
+        NativeFixtureCheck.run(chrome: chrome, variant: variant, previewRoot: resources.appendingPathComponent("ChromePreview"))
     }
     #else
     func showDesignFixture(_ variant: String) {}

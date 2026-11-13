@@ -18,6 +18,10 @@ rsync -a --delete apps/browser-chrome/dist/app/ "$DEST/Chrome/"
 if [ "${CONFIGURATION:-Debug}" = "Debug" ]; then
   bun run build:preview
   rsync -a --delete apps/browser-chrome/dist/preview/ "$DEST/ChromePreview/"
+  # Native fixture self-check inputs (DEBUG only): Figma boxes + reference renders.
+  mkdir -p "$DEST/ChromePreview/figma"
+  cp tests/visual/figma-expected-boxes.json "$DEST/ChromePreview/figma/"
+  for f in design/figma/renders-b64/*.png.b64; do base64 --decode < "$f" > "$DEST/ChromePreview/figma/$(basename "${f%.b64}")"; done
 else
   rm -rf "$DEST/ChromePreview"
 fi
