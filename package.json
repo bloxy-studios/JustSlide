@@ -1,0 +1,19 @@
+{
+  "name": "justslide",
+  "private": true,
+  "packageManager": "bun@1.4.4",
+  "workspaces": ["apps/browser-chrome"],
+  "scripts": {
+    "protocol:gen": "node scripts/gen-protocol-ts.mjs",
+    "protocol:check": "node scripts/gen-protocol-ts.mjs --check",
+    "dev:ui": "cd apps/browser-chrome && bun run dev",
+    "build:ui": "cd apps/browser-chrome && bun run build",
+    "build:preview": "cd apps/browser-chrome && bun run build:preview",
+    "typecheck": "cd apps/browser-chrome && bun run typecheck",
+    "test:ui": "cd apps/browser-chrome && bun run test",
+    "test:rust": "cargo test --workspace --all-features",
+    "test:visual": "python3 tests/visual/capture_and_compare.py",
+    "licenses": "node scripts/license-audit.mjs",
+    "check": "bun run protocol:check && bun run typecheck && bun run test:ui && bun run build:ui && cargo test --workspace --all-features && node scripts/check-release-bundle.mjs"
+  }
+}
