@@ -36,7 +36,7 @@ final class WebKitBrowserAdapter: NSObject {
         return [
             "engine": "webkit", "engineVersion": "system WebKit, macOS \(os)",
             "screenshots": f("supported", "WKWebView.takeSnapshot"),
-            "backgroundCapture": f("unknown", "views not in a window may not repaint; verify natively (docs/platform-adapter.md)"),
+            "backgroundCapture": f("partial", "verified 2026-11-13: takeSnapshot returns an image for views in no window; may be stale (possiblyStale=true)"),
             "pageSnapshot": f("supported", "bounded DOM/ARIA walk in an isolated WKContentWorld"),
             "profileIsolation": f("supported", "WKWebsiteDataStore(forIdentifier:) per profile, macOS 14+"),
             "privateProfiles": f("supported", "WKWebsiteDataStore.nonPersistent()"),

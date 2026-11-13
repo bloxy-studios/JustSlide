@@ -30,10 +30,18 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         self.core = core
         if let fixture { core.loadDesignFixture(variant: fixture) }
         windowController = BrowserWindowController(core: core, resources: Bundle.main.resourceURL!, size: NSSize(width: 1440, height: 1024), startInFixture: fixture)
-        windowController.showWindow(nil)
-        if fixture == nil { core.restoreSession() }
         NSApp.mainMenu = buildMenu()
+        windowController.showWindow(nil)
+        windowController.window?.makeKeyAndOrderFront(nil)
+        windowController.window?.orderFrontRegardless()
+        if fixture == nil { core.restoreSession() }
         NSApp.activate()
+        NSLog("JustSlide: launched (fixture=%@)", fixture ?? "none")
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) { [weak self] in
+            guard let w = self?.windowController.window else { return NSLog("JustSlide: no window controller window") }
+            NSLog("JustSlide: windows=%d visible=%d frame=%@ onActiveSpace=%d appActive=%d occlusionVisible=%d", NSApp.windows.count, w.isVisible ? 1 : 0,
+                  NSStringFromRect(w.frame), w.isOnActiveSpace ? 1 : 0, NSApp.isActive ? 1 : 0, w.occlusionState.contains(.visible) ? 1 : 0)
+        }
     }
 
     func applicationShouldTerminateAfterLastWindowClosed(_ sender: NSApplication) -> Bool { true }
