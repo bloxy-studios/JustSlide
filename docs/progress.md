@@ -1,6 +1,6 @@
-# Progress checkpoint — 2026-11-13 (session 1, WebKit edition)
+# Progress checkpoint — 2026-11-13 (session 2, WebKit edition)
 
-Branch `webkit/foundation` (local; not pushed — spec forbids automatic pushes). Chromium prototype preserved on `archive/chromium-foundation` (32ddddc).
+Branch `webkit/foundation` is on GitHub (pushed with the owner's go-ahead; `main` untouched). The 20 PNG evidence files are not on GitHub (text-only push channel) — Figma renders are mirrored as base64 in `design/figma/renders-b64/`. Chromium prototype preserved on `archive/chromium-foundation` (32ddddc).
 
 ## What changed
 - `crates/justslide-protocol` — canonical registry v1.1 (40 commands, 17 events, `exposure` ui/mcp).
@@ -14,36 +14,36 @@ Branch `webkit/foundation` (local; not pushed — spec forbids automatic pushes)
 ## Spec §20 acceptance status
 | # | Test | Status |
 |---|---|---|
-| 1 | 1440×1024 layout | **pass (preview)**, native not run |
-| 2 | 1100×720 compact, pinned collapsed, agent activity | **pass (preview)**, native not run |
+| 1 | 1440×1024 layout | **pass native** (0 geometry failures, 0.71 % pixels) + preview |
+| 2 | 1100×720 compact, pinned collapsed, agent activity | **pass native** (0 geometry failures, 0.88 % pixels) + preview |
 | 3 | Favorites vs workspace dock semantics | pass (UI tests) |
 | 4 | Active tab ↔ address ↔ page | UI pass; native page not run |
 | 5 | Dock stable while tabs scroll | layout pass (preview); scroll interaction not automated |
 | 6 | Figma icons in slots | pass (preview); licences pending |
 | 7 | Font/ADS status documented | done |
 | 8 | Backdrop persists + contrast | core + contrast tests pass; first-paint flash not tested |
-| 9 | Native HTTPS navigation | **not run** |
+| 9 | Native HTTPS navigation | **pass native** (example.com, apple.com via core + WebKit); back/forward/reload not driven yet |
 | 10 | Create/pin/move/close/reopen, select workspaces | core pass (test engine) |
 | 11 | Persist favorites/tabs/order across restart | core pass |
 | 12 | Real load/error state | core pass (test engine); native not run |
 | 13 | Popups and downloads | popups core pass; downloads UI/permission not done |
 | 14 | Renderer recovery, restoration, form/audio protection | crash→reload + lazy restore pass; form/audio protection not implemented |
-| 15 | Agent background tabs, focus unchanged | core + MCP e2e pass (test engine); native typing test not run |
-| 16 | Two agents scoped | pass |
-| 17 | Screenshot of requested tab | pass with test double; native not run |
+| 15 | Agent background tabs, focus unchanged | MCP e2e pass on macOS (test engine) + native XCTest: background WKWebView never takes first responder; live typing test not run |
+| 16 | Two agents scoped | pass (Linux + macOS) |
+| 17 | Screenshot of requested tab | test-double pass; native: WebKit snapshots a background view (image, possiblyStale) |
 | 18 | Revoked token | pass |
-| 19 | Hostile site cannot reach native | native test written, not run; CSP pass |
+| 19 | Hostile site cannot reach native | **pass native** (no `justslide` handler in page views) + CSP pass |
 | 20 | Injected instructions grant nothing | pass |
-| 21 | Build/test on Mac arch | **not run** |
+| 21 | Build/test on Mac arch | **pass** Intel x86_64 (Xcode build, 5/5 XCTest, 33/33 cargo); arm64 unverified |
 | 22 | Preview vs native distinguished | done |
 | 23 | Accessibility/keyboard | labels, focus states, keyboard reorder/menu; no automated a11y audit yet |
 | 24 | Performance measurements | core baseline only |
 | 25 | Release bundle hygiene | pass (`check-release-bundle.mjs`) |
 
 ## Blockers
-1. **No Mac build path**: SimBridge has only GoldPilot registered; JustSlide needs cloning on the Mac, registration + Trust builds, and grant reconnection; macOS-destination support in `build_start` is unverified. Rust and Bun must be installed on the Mac.
-2. **Owner decisions**: host change (ADR 0001); ADS/Atlassian licence use; Nucleo icon licence; workspace brand icons; traffic-light placement (E-5); collapsed sidebar design (E-7).
-3. GitHub write from this environment previously returned 403; this session did not push.
+1. **SimBridge window screenshots**: the app launches in the background, macOS refuses activation, and the window stays off the active Space, so SimBridge can't capture it. Native visuals are verified by the in-app self-check instead; snapshots are saved on the Mac (`~/Library/Application Support/JustSlide Dev/evidence/`). For a person-visible capture, unlock the Mac and switch to the JustSlide window.
+2. **Owner decisions**: host change (ADR 0001); ADS/Atlassian licence; Nucleo icon licence; workspace brand icons; traffic-light placement (E-5); collapsed sidebar design (E-7).
+3. Not yet native: pairing UI + Keychain, approval sheets, downloads UI, back/forward/reload driven by clicks, restart restore in the app, MV3 extensions, Retina (@2×) comparison, performance on the Mac.
 
 ## Resume
 ```bash

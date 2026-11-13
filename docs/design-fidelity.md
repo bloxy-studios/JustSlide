@@ -8,7 +8,17 @@
 | 1:6 desktop 1440×1024 | 1× / 2× | 9 | favorites 13, dock 6, rows 15 | **0 / 0** | 0.62 % / 0.71 % |
 | 35:13 compact 1100×720 | 1× / 2× | 10 | favorites 13, dock 6, rows 8 | **0 / 0** | 0.92 % / 0.93 % |
 
-Remaining pixel differences are glyph rasterisation (Inter substitute vs SF Pro), monochrome emoji (no colour-emoji font in the sandbox) and a half-pixel on the separator stroke. **Native macOS WKWebView screenshots: not run** (no Mac build path this session; see `docs/progress.md`).
+Remaining pixel differences are glyph rasterisation (Inter substitute vs SF Pro), monochrome emoji (no colour-emoji font in the sandbox) and a half-pixel on the separator stroke.
+
+## Evidence (2026-11-13) — NATIVE macOS WKWebView
+Owner's MacBook Pro (Intel x86_64, macOS 26.5.1, 1× display), DEBUG self-check in the real app (`docs/evidence/native/2026-11-13-macos-build-and-xctest.md`):
+
+| Composition | Geometry failures (>1 px) | Max edge Δ | Pixels differing >32/255 |
+|---|---|---|---|
+| 1:6 desktop 1440×1024 @1× | **0** | 0 px (9 regions, 13 tiles, 6 dock, 15 rows) | 0.71 % |
+| 35:13 compact 1100×720 @1× | **0** | 0 px (10 regions, 13 tiles, 6 dock, 8 rows) | 0.88 % |
+
+The selected-tab title is 166 px wide natively — the exact Figma text width — confirming SF Pro. Retina (@2×) native comparison: not run (the owner's display is 1×).
 
 ## Accepted / pending exceptions
 | ID | Difference | Reason | Status |
@@ -20,4 +30,4 @@ Remaining pixel differences are glyph rasterisation (Inter substitute vs SF Pro)
 | E-5 | macOS traffic lights moved into the nav row gap (x≈62) | Figma omits window controls and places the sidebar toggle where they normally sit | **needs owner/design decision + native check** |
 | E-6 | Hover keeps the list row's 14 px favicon (component shows 16 px) | avoids layout jitter; selected row uses 16 px as in 1:6 | accepted |
 | E-7 | Sidebar-collapsed rail | not designed in Figma; placeholder rail with toggle only | **needs design** |
-| E-8 | Typography in Linux preview uses Inter | sandbox has no SF Pro; macOS resolves the ADS stack to SF Pro | environment only |
+| E-8 | Typography in Linux preview uses Inter | sandbox has no SF Pro; macOS resolves the ADS stack to SF Pro (verified natively: 166 px title width = Figma) | environment only |
