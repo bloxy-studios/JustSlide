@@ -1,0 +1,22 @@
+/* Base for the trusted chrome document. Colours come from ADS tokens set by
+   setGlobalTheme + the Slide theme layer (theme/slide-theme.ts). */
+html, body { margin: 0; height: 100%; overflow: hidden; background: var(--slide-backdrop, #ACFFF7); }
+body { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; font: var(--ds-font-body); color: var(--ds-text); }
+#root { height: 100%; }
+button { font: inherit; }
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; animation: none !important; } }
+
+/* Slide type tokens (app-specific; Figma SF Pro 510/590 scale). The family is
+   always the ADS body token: "Atlassian Sans" when licensed, otherwise
+   ui-sans-serif / -apple-system, i.e. SF Pro on macOS. ADS has no 13px step,
+   see docs/design-fidelity.md exception E-2. */
+:root {
+  --slide-font-family: var(--ds-font-family-body, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif);
+  --slide-font-row: 510 13px/18px var(--slide-font-family);
+  --slide-font-row-strong: 590 13px/18px var(--slide-font-family);
+  --slide-font-field: 510 12px/18px var(--slide-font-family);
+  --slide-font-section-title: 590 12px/18px var(--slide-font-family);
+  --slide-font-count: 510 11px/18px var(--slide-font-family);
+  --slide-font-caption: 510 11px/16px var(--slide-font-family);
+  --slide-font-overline: 590 10px/16px var(--slide-font-family);
+}

@@ -1,0 +1,44 @@
+{
+  "$comment": "DEVELOPMENT-ONLY design fixture reproducing the Figma reference content (file nw47hqMLTtmBMksJ4BnJKb, nodes 1:6 and 35:13, lastModified 2026-11-11T19:26:40Z). Never loaded by release builds. Titles/URLs are sample data from the design, not real browsing state. Brand icons are referenced by key and resolved only in dev/preview builds.",
+  "favorites": [
+    {"key": "youtube", "title": "YouTube", "url": "https://www.youtube.com/"},
+    {"key": "chatgpt", "title": "ChatGPT", "url": "https://chatgpt.com/"},
+    {"key": "claude", "title": "Claude", "url": "https://claude.ai/"},
+    {"key": "gmail", "title": "Gmail", "url": "https://mail.google.com/"},
+    {"key": "aws", "title": "AWS", "url": "https://aws.amazon.com/"},
+    {"key": "github", "title": "GitHub", "url": "https://github.com/"},
+    {"key": "slack", "title": "Slack", "url": "https://slack.com/"},
+    {"key": "notion", "title": "Notion", "url": "https://www.notion.so/"},
+    {"key": "discord", "title": "Discord", "url": "https://discord.com/"},
+    {"key": "netflix", "title": "Netflix", "url": "https://www.netflix.com/"},
+    {"key": "supabase", "title": "Supabase", "url": "https://supabase.com/"},
+    {"key": "convex", "title": "Convex", "url": "https://www.convex.dev/"}
+  ],
+  "pinned": [
+    {"icon": "lobehub", "title": "ActionIconGroup - Lobe", "url": "https://ui.lobehub.com/components/action-icon-group"},
+    {"icon": "folder-open", "title": "Pull Requests", "url": "https://github.com/pulls"},
+    {"icon": "nextjs", "title": "Next.js - App router", "url": "https://nextjs.org/docs/app"},
+    {"icon": "github", "title": "mantrakp/ardia: A free C...", "url": "https://github.com/mantrakp/ardia"},
+    {"icon": "aliexpress", "title": "Ali express", "url": "https://www.aliexpress.com/"}
+  ],
+  "tabs": [
+    {"icon": "figma", "title": "Slide - Figma", "url": "https://www.figma.com/design/nw47hqMLTtmBMksJ4BnJKb/Slide", "active": true},
+    {"icon": "lucide", "title": "Icons - Lucide", "url": "https://lucide.dev/icons/"},
+    {"icon": "phosphor", "title": "Phosphor Icons", "url": "https://phosphoricons.com/"},
+    {"icon": "nucleo", "title": "Web App | Nucleo", "url": "https://nucleoapp.com/app"},
+    {"icon": "facebook", "title": "(1) Facebook", "url": "https://www.facebook.com/"},
+    {"icon": "youtube", "title": "(1230) ⚡️⚡️I awaken super attribute body, carve runes on rus", "url": "https://www.youtube.com/watch?v=fixture"},
+    {"icon": "github", "title": "mantrakp04/ardia: A free Chromium browser for the Mac: Arc's", "url": "https://github.com/mantrakp04/ardia"},
+    {"icon": "google", "title": "onlyfake.org", "url": "https://www.google.com/search?q=onlyfake.org"},
+    {"icon": "chatgpt", "title": "Create Facebook Page Idea", "url": "https://chatgpt.com/c/fixture"},
+    {"icon": "antigravity", "title": "Antigravity", "url": "https://antigravity.google/"}
+  ],
+  "variants": {
+    "desktop": {"figmaNode": "1:6", "width": 1440, "height": 1024, "pinnedCollapsed": false, "agent": null},
+    "compact": {
+      "figmaNode": "35:13", "width": 1100, "height": 720, "pinnedCollapsed": true,
+      "agent": {"client": "claude-code", "label": "Claude Code", "workspaceIcon": "claude-code", "illustrative": true,
+        "tabs": ["https://example.com/research-1", "https://example.com/research-2", "https://example.com/research-3"]}
+    }
+  }
+}

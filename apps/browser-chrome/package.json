@@ -1,0 +1,61 @@
+{
+  "name": "@justslide/browser-chrome",
+  "version": "0.2.0",
+  "private": true,
+  "type": "module",
+  "description": "Trusted JustSlide browser chrome (sidebar UI). Runs inside a local, privileged WKWebView in the macOS app; previewed in desktop browsers for development only.",
+  "scripts": {
+    "dev": "parcel serve src/preview.html --port 41730 --dist-dir .parcel-dev --no-cache",
+    "build": "parcel build --target app --no-cache && node ../../scripts/finalize-chrome-bundle.mjs && node ../../scripts/check-release-bundle.mjs",
+    "build:preview": "parcel build --target preview --no-cache && node ../../scripts/finalize-chrome-bundle.mjs apps/browser-chrome/dist/preview",
+    "typecheck": "tsc --noEmit -p .",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@atlaskit/css": "1.1.8",
+    "@atlaskit/css-reset": "8.4.10",
+    "@atlaskit/dropdown-menu": "21.3.1",
+    "@atlaskit/icon": "38.0.2",
+    "@atlaskit/primitives": "22.7.1",
+    "@atlaskit/spinner": "20.4.4",
+    "@atlaskit/tokens": "20.11.0",
+    "@compiled/react": "1.0.2",
+    "react": "19.3.1",
+    "react-dom": "19.3.1"
+  },
+  "devDependencies": {
+    "@compiled/parcel-config": "0.5.7",
+    "@compiled/vite-plugin": "2.1.0",
+    "@parcel/config-default": "2.16.4",
+    "@testing-library/react": "16.3.3",
+    "@testing-library/user-event": "14.6.9",
+    "@types/node": "24.19.2",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "jsdom": "31.0.0",
+    "parcel": "2.16.4",
+    "typescript": "5.9.3",
+    "vitest": "5.1.0"
+  },
+  "targets": {
+    "app": {
+      "source": "src/index.html",
+      "distDir": "dist/app",
+      "context": "browser",
+      "outputFormat": "esmodule",
+      "isLibrary": false,
+      "sourceMap": false,
+      "engines": { "browsers": "Safari 17" },
+      "publicUrl": "./"
+    },
+    "preview": {
+      "source": "src/preview.html",
+      "distDir": "dist/preview",
+      "context": "browser",
+      "outputFormat": "esmodule",
+      "sourceMap": false,
+      "engines": { "browsers": "Safari 17" },
+      "publicUrl": "./"
+    }
+  }
+}
