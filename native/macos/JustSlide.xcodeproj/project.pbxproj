@@ -1,0 +1,185 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D2B7691E8CCC90DE5F59690E /* AppDelegate.swift */ = {isa = PBXBuildFile; fileRef = A20F1EA0FA4CCBA2F53E4E77; };
+		9A571F6399135E47E6CC359E /* BrowserWindowController.swift */ = {isa = PBXBuildFile; fileRef = B16C84AF32D5BD1D91718B2E; };
+		A956E106A455D537914901F7 /* ChromeHost.swift */ = {isa = PBXBuildFile; fileRef = 0C6AA6E4C1652918ECD326DE; };
+		0D8519A6CA12244319A80693 /* CoreBridge.swift */ = {isa = PBXBuildFile; fileRef = 5DD37D6EF98C4B1A0BFE6F13; };
+		2390D045796398506E95F7D9 /* WebKitBrowserAdapter.swift */ = {isa = PBXBuildFile; fileRef = 12427F916492F8E3BC2996AE; };
+		653D9F58D1F1A194AA4C0A38 /* WebKitAdapterTests.swift */ = {isa = PBXBuildFile; fileRef = 31E471ED507AC0141BAF5979; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		431387EB7262E1CFC79B125E = {isa = PBXContainerItemProxy; containerPortal = 46F86FAA6BBF9AC94A7E4595; proxyType = 1; remoteGlobalIDString = ACC9652797AB670E77D9DAEA; remoteInfo = JustSlide; };
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		A20F1EA0FA4CCBA2F53E4E77 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AppDelegate.swift"; sourceTree = "<group>"; };
+		B16C84AF32D5BD1D91718B2E = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BrowserWindowController.swift"; sourceTree = "<group>"; };
+		0C6AA6E4C1652918ECD326DE = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChromeHost.swift"; sourceTree = "<group>"; };
+		5DD37D6EF98C4B1A0BFE6F13 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoreBridge.swift"; sourceTree = "<group>"; };
+		12427F916492F8E3BC2996AE = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WebKitBrowserAdapter.swift"; sourceTree = "<group>"; };
+		31E471ED507AC0141BAF5979 = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WebKitAdapterTests.swift"; sourceTree = "<group>"; };
+		9886A4B99FAC7237ED69D6FA = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Info.plist"; sourceTree = "<group>"; };
+		60FC00DF1950957389675487 = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "JustSlide.entitlements"; sourceTree = "<group>"; };
+		FCFCC33B2851272376BF77E3 = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "JustSlide-Bridging-Header.h"; sourceTree = "<group>"; };
+		19B0D72D2C4280C9551429FF = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "include/justslide.h"; sourceTree = "<group>"; };
+		0EA5137CF4C86B879FDCF9FF = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JustSlide.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		B79A3BCA04700DFF27B10DB2 = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JustSlideTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		38FB6217D7FC577538742B79 = {isa = PBXFrameworksBuildPhase; buildActionMask = 2147483647; files = (); runOnlyForDeploymentPostprocessing = 0; };
+		5A0D24819E0C881F947A350C = {isa = PBXFrameworksBuildPhase; buildActionMask = 2147483647; files = (); runOnlyForDeploymentPostprocessing = 0; };
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		48DF070F17A9BC28E5854885 = {isa = PBXGroup; children = (B4B8F13F660ACCE4F40BA976, 5A45569C976F859D489EA96C, 8780D057ECE6CFF7FFAB3226, 58FB7067040BAE602651590A, ); sourceTree = "<group>"; };
+		B4B8F13F660ACCE4F40BA976 = {isa = PBXGroup; children = (A20F1EA0FA4CCBA2F53E4E77, B16C84AF32D5BD1D91718B2E, 0C6AA6E4C1652918ECD326DE, 5DD37D6EF98C4B1A0BFE6F13, 12427F916492F8E3BC2996AE, 9886A4B99FAC7237ED69D6FA, 60FC00DF1950957389675487, FCFCC33B2851272376BF77E3, ); path = "JustSlide"; sourceTree = "<group>"; };
+		5A45569C976F859D489EA96C = {isa = PBXGroup; children = (31E471ED507AC0141BAF5979, ); path = "JustSlideTests"; sourceTree = "<group>"; };
+		8780D057ECE6CFF7FFAB3226 = {isa = PBXGroup; children = (19B0D72D2C4280C9551429FF, ); path = "JustSlideCore"; sourceTree = "<group>"; };
+		58FB7067040BAE602651590A = {isa = PBXGroup; children = (0EA5137CF4C86B879FDCF9FF, B79A3BCA04700DFF27B10DB2, ); name = "Products"; sourceTree = "<group>"; };
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		ACC9652797AB670E77D9DAEA = {isa = PBXNativeTarget; buildConfigurationList = 1ED00BBC0099E0D70106FB20; buildPhases = (287FE768D4FE6CE368832F22, 461B1FE938757D25CAF1D55A, 38FB6217D7FC577538742B79, 83A2E712880D2B7F5FC4A885, E998292DBCEC2C9E77BD9A82, ); buildRules = (); dependencies = (); name = JustSlide; productName = JustSlide; productReference = 0EA5137CF4C86B879FDCF9FF; productType = "com.apple.product-type.application"; };
+		F8B5E1CE71E4B6834D8C227D = {isa = PBXNativeTarget; buildConfigurationList = 1F1599E50C6705ECCC4ED113; buildPhases = (D6442198FC178896457727CB, 5A0D24819E0C881F947A350C, FD2AEF10E8CFA2EB52B5AFAA, ); buildRules = (); dependencies = (2254342BECCEAFBD04538E0A, ); name = JustSlideTests; productName = JustSlideTests; productReference = B79A3BCA04700DFF27B10DB2; productType = "com.apple.product-type.bundle.unit-test"; };
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		46F86FAA6BBF9AC94A7E4595 = {isa = PBXProject; attributes = {BuildIndependentTargetsInParallel = 1; LastSwiftUpdateCheck = 2600; LastUpgradeCheck = 2600; TargetAttributes = {F8B5E1CE71E4B6834D8C227D = {TestTargetID = ACC9652797AB670E77D9DAEA; }; }; }; buildConfigurationList = B61A476A5531CC175278BDCF; compatibilityVersion = "Xcode 14.0"; developmentRegion = en; hasScannedForEncodings = 0; knownRegions = (en, Base, ); mainGroup = 48DF070F17A9BC28E5854885; productRefGroup = 58FB7067040BAE602651590A; projectDirPath = ""; projectRoot = ""; targets = (ACC9652797AB670E77D9DAEA, F8B5E1CE71E4B6834D8C227D, ); };
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		83A2E712880D2B7F5FC4A885 = {isa = PBXResourcesBuildPhase; buildActionMask = 2147483647; files = (); runOnlyForDeploymentPostprocessing = 0; };
+		FD2AEF10E8CFA2EB52B5AFAA = {isa = PBXResourcesBuildPhase; buildActionMask = 2147483647; files = (); runOnlyForDeploymentPostprocessing = 0; };
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		287FE768D4FE6CE368832F22 = {isa = PBXShellScriptBuildPhase; alwaysOutOfDate = 1; buildActionMask = 2147483647; files = (); inputPaths = (); name = "Build Rust core"; outputPaths = (); runOnlyForDeploymentPostprocessing = 0; shellPath = /bin/bash; shellScript = "/bin/bash \"$SRCROOT/scripts/build-rust-core.sh\"\n"; showEnvVarsInLog = 0; };
+		E998292DBCEC2C9E77BD9A82 = {isa = PBXShellScriptBuildPhase; alwaysOutOfDate = 1; buildActionMask = 2147483647; files = (); inputPaths = (); name = "Build and copy chrome UI"; outputPaths = (); runOnlyForDeploymentPostprocessing = 0; shellPath = /bin/bash; shellScript = "/bin/bash \"$SRCROOT/scripts/copy-chrome.sh\"\n"; showEnvVarsInLog = 0; };
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		461B1FE938757D25CAF1D55A = {isa = PBXSourcesBuildPhase; buildActionMask = 2147483647; files = (D2B7691E8CCC90DE5F59690E, 9A571F6399135E47E6CC359E, A956E106A455D537914901F7, 0D8519A6CA12244319A80693, 2390D045796398506E95F7D9, ); runOnlyForDeploymentPostprocessing = 0; };
+		D6442198FC178896457727CB = {isa = PBXSourcesBuildPhase; buildActionMask = 2147483647; files = (653D9F58D1F1A194AA4C0A38, ); runOnlyForDeploymentPostprocessing = 0; };
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		2254342BECCEAFBD04538E0A = {isa = PBXTargetDependency; target = ACC9652797AB670E77D9DAEA; targetProxy = 431387EB7262E1CFC79B125E; };
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		80DB6ACE13380ADC3D86D6C5 = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				GCC_PREPROCESSOR_DEFINITIONS = ("DEBUG=1", "$(inherited)");
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		08723DE70035A45CE7E33CC1 = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		98E398162C206F89866DBAA5 = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = JustSlide/JustSlide.entitlements;
+				COMBINE_HIDPI_IMAGES = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/JustSlideCore/include";
+				INFOPLIST_FILE = JustSlide/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/../Frameworks";
+				LIBRARY_SEARCH_PATHS = "$(BUILT_PRODUCTS_DIR)";
+				OTHER_LDFLAGS = "-ljustslide_ffi";
+				PRODUCT_BUNDLE_IDENTIFIER = app.justslide.JustSlide.dev;
+				PRODUCT_NAME = JustSlide;
+				SWIFT_OBJC_BRIDGING_HEADER = "JustSlide/JustSlide-Bridging-Header.h";
+			};
+			name = Debug;
+		};
+		31F573C1C1732BCE6B7B4EEB = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = JustSlide/JustSlide.entitlements;
+				COMBINE_HIDPI_IMAGES = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/JustSlideCore/include";
+				INFOPLIST_FILE = JustSlide/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "@executable_path/../Frameworks";
+				LIBRARY_SEARCH_PATHS = "$(BUILT_PRODUCTS_DIR)";
+				OTHER_LDFLAGS = "-ljustslide_ffi";
+				PRODUCT_BUNDLE_IDENTIFIER = app.justslide.JustSlide.dev;
+				PRODUCT_NAME = JustSlide;
+				SWIFT_OBJC_BRIDGING_HEADER = "JustSlide/JustSlide-Bridging-Header.h";
+			};
+			name = Release;
+		};
+		36FBF80B88DE32F8470BA05A = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/JustSlideCore/include";
+				PRODUCT_BUNDLE_IDENTIFIER = app.justslide.JustSlide.dev.tests;
+				PRODUCT_NAME = JustSlideTests;
+				SWIFT_OBJC_BRIDGING_HEADER = "JustSlide/JustSlide-Bridging-Header.h";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/JustSlide.app/Contents/MacOS/JustSlide";
+			};
+			name = Debug;
+		};
+		F32D2D0230C5DA69561B023E = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				GENERATE_INFOPLIST_FILE = YES;
+				HEADER_SEARCH_PATHS = "$(SRCROOT)/JustSlideCore/include";
+				PRODUCT_BUNDLE_IDENTIFIER = app.justslide.JustSlide.dev.tests;
+				PRODUCT_NAME = JustSlideTests;
+				SWIFT_OBJC_BRIDGING_HEADER = "JustSlide/JustSlide-Bridging-Header.h";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/JustSlide.app/Contents/MacOS/JustSlide";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		B61A476A5531CC175278BDCF = {isa = XCConfigurationList; buildConfigurations = (80DB6ACE13380ADC3D86D6C5, 08723DE70035A45CE7E33CC1, ); defaultConfigurationIsVisible = 0; defaultConfigurationName = Release; };
+		1ED00BBC0099E0D70106FB20 = {isa = XCConfigurationList; buildConfigurations = (98E398162C206F89866DBAA5, 31F573C1C1732BCE6B7B4EEB, ); defaultConfigurationIsVisible = 0; defaultConfigurationName = Release; };
+		1F1599E50C6705ECCC4ED113 = {isa = XCConfigurationList; buildConfigurations = (36FBF80B88DE32F8470BA05A, F32D2D0230C5DA69561B023E, ); defaultConfigurationIsVisible = 0; defaultConfigurationName = Release; };
+/* End XCConfigurationList section */
+	};
+	rootObject = 46F86FAA6BBF9AC94A7E4595;
+}

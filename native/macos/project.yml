@@ -1,0 +1,40 @@
+# XcodeGen spec (fallback/source of truth for JustSlide.xcodeproj):
+#   brew install xcodegen && cd native/macos && xcodegen generate
+name: JustSlide
+options:
+  bundleIdPrefix: app.justslide
+  deploymentTarget: { macOS: "14.0" }
+settings:
+  base: { SWIFT_VERSION: "5.0", MACOSX_DEPLOYMENT_TARGET: "14.0" }
+targets:
+  JustSlide:
+    type: application
+    platform: macOS
+    sources: [JustSlide]
+    preBuildScripts:
+      - { name: "Build Rust core", script: "/bin/bash \"$SRCROOT/scripts/build-rust-core.sh\"", basedOnDependencyAnalysis: false }
+    postCompileScripts:
+      - { name: "Build and copy chrome UI", script: "/bin/bash \"$SRCROOT/scripts/copy-chrome.sh\"", basedOnDependencyAnalysis: false }
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: app.justslide.JustSlide.dev
+        INFOPLIST_FILE: JustSlide/Info.plist
+        CODE_SIGN_ENTITLEMENTS: JustSlide/JustSlide.entitlements
+        CODE_SIGN_IDENTITY: "-"
+        ENABLE_HARDENED_RUNTIME: YES
+        SWIFT_OBJC_BRIDGING_HEADER: JustSlide/JustSlide-Bridging-Header.h
+        HEADER_SEARCH_PATHS: $(SRCROOT)/JustSlideCore/include
+        LIBRARY_SEARCH_PATHS: $(BUILT_PRODUCTS_DIR)
+        OTHER_LDFLAGS: -ljustslide_ffi
+        ENABLE_USER_SCRIPT_SANDBOXING: NO
+  JustSlideTests:
+    type: bundle.unit-test
+    platform: macOS
+    sources: [JustSlideTests]
+    dependencies: [{ target: JustSlide }]
+    settings:
+      base: { TEST_HOST: "$(BUILT_PRODUCTS_DIR)/JustSlide.app/Contents/MacOS/JustSlide", BUNDLE_LOADER: "$(TEST_HOST)", PRODUCT_BUNDLE_IDENTIFIER: app.justslide.JustSlide.dev.tests, GENERATE_INFOPLIST_FILE: YES, CODE_SIGN_IDENTITY: "-" }
+schemes:
+  JustSlide:
+    build: { targets: { JustSlide: all, JustSlideTests: [test] } }
+    test: { targets: [JustSlideTests] }
